@@ -1,6 +1,5 @@
 ---
 title: "Automated Excel Tables"
-author: "Russell McCreath"
 site: "bookdown::bookdown_site"
 output: bookdown::gitbook
 description: "A guide on how to create automated Excel worksheets and tables"

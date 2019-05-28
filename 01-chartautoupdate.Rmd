@@ -1,0 +1,59 @@
+# Charts Auto-Update
+
+Task: to have the Excel charts automatically update with the addition of new rows in a table.
+
+
+## Steps
+
+Replace every formula in the chart with a named formula that includes an offset function.
+
+For every data series that you want to automatically update:
+
+1. Start by creating a named formula.
+2. Then, create an offset function inside the named formula:
+    * Reference the column of the data series that you wish to update.
+    * Reference the number of rows of the table which is being updated.
+3. Save the named variable.
+4. Have the data series you want to change reference this new named formula.
+
+
+## Details
+
+In this worked example we are using [TableA1a_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an `OFFSET` function but need to set this up as a named variable to then include in our Chart Series values.
+
+1. First, set up a dynamic count for the number of rows in the table. In this example, we've set up a count in cell `H5` with the formula `COUNTA(F11:F1000)` - this will count the number of non-blank cells in this range up to `F1000`. If the data exceeds this, the formula will need to be updated.
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/chartau-01-countrows.png', dpi = NA)
+```
+&nbsp;
+
+2. Go to the "Formulas" tab and then click on the "Name Manager" button:
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/chartau-02-formulatab.png', dpi = NA)
+```
+&nbsp;
+
+3. Create a new name by clicking on "New..."
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/chartau-03-newname.png', dpi = NA)
+```
+&nbsp;
+
+4. Name and add reference forumla. In this example, we've named it "ChartData" and the formula is `=OFFSET(Table1!$E$11, 0, 0, H5, 1)`.
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/chartau-04-createname.png', dpi = NA)
+```
+&nbsp;
+
+5. Finally, select the chart and right-click, click on "Select Data...", and then click on "Edit" for the series values. To have the series reference this named variable we type in a combination of the Excel filename (TableA1a_2.xls), an exclamation point, and the named variable.
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/chartau-05-editseries', dpi = NA)
+```
+&nbsp;
+
+These steps should then be repeated for the X-Axis values, and once for each line within your chart. After completing this, the charts should be automically updated with each new quarter's data that is added.
