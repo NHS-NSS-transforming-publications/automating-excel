@@ -52,7 +52,7 @@ knitr::include_graphics('images/chartau-04-createname.png', dpi = NA)
 5. Finally, select the chart and right-click, click on "Select Data...", and then click on "Edit" for the series values. To have the series reference this named variable we type in a combination of the Excel filename (TableA1a_2.xls), an exclamation point, and the named variable.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
-knitr::include_graphics('images/chartau-05-editseries', dpi = NA)
+knitr::include_graphics('images/chartau-05-editseries.png', dpi = NA)
 ```
 &nbsp;
 
