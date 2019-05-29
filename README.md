@@ -2,7 +2,7 @@
 
 *An instruction guide on how to make Excel worksheets dynamic.*
 
-This is a Bookdown guide for analysts on how to make their Excel worksheets dynamic. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of error and the time it takes to update data in Excel.
+This is a Bookdown guide for analysts on how to make their Excel worksheets dynamic. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of errors and the time it takes to update data in Excel.
 
 There are currently four sections:
 
