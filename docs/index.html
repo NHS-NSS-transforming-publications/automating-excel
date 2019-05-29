@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Automating Excel</title>
+  <meta name="description" content="A guide on how to create automated Excel worksheets and tables">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Automating Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guide on how to create automated Excel worksheets and tables" />
+  <meta name="github-repo" content="NHS-NSS-transforming-publications/automating-excel" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Automating Excel" />
+  
+  <meta name="twitter:description" content="A guide on how to create automated Excel worksheets and tables" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="charts-auto-update.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="charts-auto-update.html"><a href="charts-auto-update.html"><i class="fa fa-check"></i><b>1</b> Charts Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#steps"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#details"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chart-baseline.html"><a href="chart-baseline.html"><i class="fa fa-check"></i><b>2</b> Chart Baseline</a><ul>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#details-1"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html"><i class="fa fa-check"></i><b>3</b> Auto-Add Table Line</a><ul>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#details-2"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="title-auto-update.html"><a href="title-auto-update.html"><i class="fa fa-check"></i><b>4</b> Title Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#steps-3"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#details-3"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Automating Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Automating Excel</h1>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>This workbook is a general instruction guide for analysts on how to make their Excel worksheets dynamic. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of errors and the time it takes to update data in Excel.</p>
+<p>There are four chapters, each for a method of automating the spreadsheet.</p>
+<ol style="list-style-type: decimal">
+<li>Chart auto update</li>
+<li>Set constant baseline period in chart</li>
+<li>Add a record to a table when there is new data in the data sheet</li>
+<li>Automatically update the table or chart title when the table has been updated</li>
+</ol>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="charts-auto-update.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

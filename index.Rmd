@@ -8,7 +8,7 @@ output:
         collapse: section
 description: "A guide on how to create automated Excel worksheets and tables"
 github-repo: NHS-NSS-transforming-publications/automating-excel
-output-dir: "docs"
+output_dir: "docs"
 ---
 
 # Preface {-}

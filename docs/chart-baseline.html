@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2 Chart Baseline | Automating Excel</title>
+  <meta name="description" content="A guide on how to create automated Excel worksheets and tables">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2 Chart Baseline | Automating Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guide on how to create automated Excel worksheets and tables" />
+  <meta name="github-repo" content="NHS-NSS-transforming-publications/automating-excel" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Chart Baseline | Automating Excel" />
+  
+  <meta name="twitter:description" content="A guide on how to create automated Excel worksheets and tables" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="charts-auto-update.html">
+<link rel="next" href="auto-add-table-line.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="charts-auto-update.html"><a href="charts-auto-update.html"><i class="fa fa-check"></i><b>1</b> Charts Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#steps"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#details"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chart-baseline.html"><a href="chart-baseline.html"><i class="fa fa-check"></i><b>2</b> Chart Baseline</a><ul>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#details-1"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html"><i class="fa fa-check"></i><b>3</b> Auto-Add Table Line</a><ul>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#details-2"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="title-auto-update.html"><a href="title-auto-update.html"><i class="fa fa-check"></i><b>4</b> Title Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#steps-3"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#details-3"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Automating Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chart-baseline" class="section level1">
+<h1><span class="header-section-number">2</span> Chart Baseline</h1>
+<p>Task: to add a constant baseline area to a chart in Excel.</p>
+<div id="steps-1" class="section level2 unnumbered">
+<h2>Steps</h2>
+<ol style="list-style-type: decimal">
+<li>Insert a new data series in the table.</li>
+<li>Set the series values to be a positive value <code>p</code> for all quarters whch are in the baseline period and set them to <code>0</code> for quarters which aren’t in the baseline period.</li>
+<li>Set the chart type of this data series to ‘Column’.</li>
+<li>Plot this series on the “secondary axis”.</li>
+<li>Change the gap width of the columns to <code>0</code>.</li>
+<li>Set the maximum value of the secondary axis to a value less than <code>p</code>.</li>
+<li>Remove any visible parts of the secondary axis.</li>
+<li>Set the transparency of the columns to 50% (to allow lines to be visible that are behind the columns) and choose an appropriate colour.</li>
+</ol>
+</div>
+<div id="details-1" class="section level2 unnumbered">
+<h2>Details</h2>
+<p>In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart1. Our data includes a baseline period that we need to show on our chart. We do this by adding another data series within the same chart.</p>
+<ol style="list-style-type: decimal">
+<li>First, right-click on the chart and click “Select Data…”, on the screen that appears click “Add” for a new series.</li>
+</ol>
+<p><img src="images/chartbl-01-selectdata.png" style="display: block; margin: auto;" />  </p>
+<ol start="2" style="list-style-type: decimal">
+<li>Name the new series, in this example we’ve named it “Baseline_Area”. You’ll also need to know how many data points (e.g. number of quarters) that are in the baseline period. The series values will then be any number repeated the number of times there are data points. <em>In this example, we have 12 quarters that are part of our baseline, we have chosen the number “1”, and filled in “1” 12 times.</em></li>
+</ol>
+<p><img src="images/chartbl-02-editseries.PNG" style="display: block; margin: auto;" />  </p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now, back at the chart, right-click on any of the new data points and select “Change Series Chart Type”. From the available chart types, go to “Column” and select “Clustered Column”. Depending on the version of Excel, you may also be able to select “Secondary Axis” too (there’s another way in the next step).</li>
+</ol>
+<p><img src="images/chartbl-03-charttype.PNG" style="display: block; margin: auto;" />  </p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>The chart will now have bars across the baseline period, we’re getting there. To have them fill the space, right-click on one of the bars and select “Format Data Series…”. In the menu that appears there’s a couple of things to do:</p>
+<ul>
+<li>In “Series Options”, change the Gap Width to 0%.</li>
+<li>If you weren’t able to change the Baseline to a secondary axis in the previous step, you can do that here too. Under “Plot Series On”, click “Secondary Axis”.</li>
+<li>You can also change the colour under “Fill”. Choose a suitable solid fill and change the transparency to 50% (this is so it doesn’t obscure the data points that will be in the baseline period).</li>
+</ul></li>
+</ol>
+<p><img src="images/chartbl-04-formatseries.PNG" style="display: block; margin: auto;" />  </p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>The area is now nearly covered but doesn’t go right to the top, there’s also a secondary axis that we need to get rid of. Go to the secondary axis (right-hand side) and right-click to select “Format Axis”. In this menu:</p>
+<ul>
+<li>Change the “Maximum Bound” to a number less than the value used in step 2. In this example we used 1 so we’ll make the maximum 0.5.</li>
+<li>Change the “Major type” tick marks to be “None”. This will remove the marks on the axis that represent the value points.</li>
+<li>Finally, change the “Axis Labels” or “Label Position” (depending on your version of Excel) to “None”. This will remove any words from the axis.</li>
+</ul></li>
+</ol>
+<p><img src="images/chartbl-05-formataxis.PNG" style="display: block; margin: auto;" />  </p>
+<p>That’s the baseline period added to the chart and will adapt with any data changes. The output from this example looks like this:</p>
+<p><img src="images/chartbl-output.PNG" style="display: block; margin: auto;" />  </p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="charts-auto-update.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="auto-add-table-line.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

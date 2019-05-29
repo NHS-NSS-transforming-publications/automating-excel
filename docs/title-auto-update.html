@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4 Title Auto-Update | Automating Excel</title>
+  <meta name="description" content="A guide on how to create automated Excel worksheets and tables">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4 Title Auto-Update | Automating Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guide on how to create automated Excel worksheets and tables" />
+  <meta name="github-repo" content="NHS-NSS-transforming-publications/automating-excel" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Title Auto-Update | Automating Excel" />
+  
+  <meta name="twitter:description" content="A guide on how to create automated Excel worksheets and tables" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="auto-add-table-line.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="charts-auto-update.html"><a href="charts-auto-update.html"><i class="fa fa-check"></i><b>1</b> Charts Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#steps"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#details"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chart-baseline.html"><a href="chart-baseline.html"><i class="fa fa-check"></i><b>2</b> Chart Baseline</a><ul>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="chart-baseline.html"><a href="chart-baseline.html#details-1"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html"><i class="fa fa-check"></i><b>3</b> Auto-Add Table Line</a><ul>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="auto-add-table-line.html"><a href="auto-add-table-line.html#details-2"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="title-auto-update.html"><a href="title-auto-update.html"><i class="fa fa-check"></i><b>4</b> Title Auto-Update</a><ul>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#steps-3"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="title-auto-update.html"><a href="title-auto-update.html#details-3"><i class="fa fa-check"></i>Details</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Automating Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="title-auto-update" class="section level1">
+<h1><span class="header-section-number">4</span> Title Auto-Update</h1>
+<p>Task: to automatically update the chart title based on the time period of the data we’re showing.</p>
+<div id="steps-3" class="section level2 unnumbered">
+<h2>Steps</h2>
+<ol style="list-style-type: decimal">
+<li>Find the last time period for which we have records. (In this example records are only added, not removed, so the start date will remain the same, January 2011).
+<ul>
+<li>Find the number of records that are in the table.</li>
+<li>Use a <code>VLOOKUP</code> to find that last month and year for which we have data.</li>
+</ul></li>
+<li>Join the fixed part of our title with the dynamic section using formula. (Add a <code>p</code> to the last date for provisional data).</li>
+</ol>
+</div>
+<div id="details-3" class="section level2 unnumbered">
+<h2>Details</h2>
+<p>In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.</p>
+<ol style="list-style-type: decimal">
+<li>Here we will need to create a four column reference table (for this, we right-clicked on column <code>I</code> and clicked insert 4 times). The table we created looks like this with the formulas listed below.</li>
+</ol>
+<p><img src="images/addtl-03-colitol.PNG" style="display: block; margin: auto;" />  </p>
+<p><strong>Col I</strong> (Qtrs_from_Start) - this follows the same format as for Column A, except that we start the count at 0.</p>
+<p><strong>Col J</strong> (Qtr-within_Year) - <code>=VLOOKUP(MOD(&lt;Qtrs_from_Start&gt;, 4), T$12:V$15, 2)</code>. This requires its own reference table for <code>T$12:V$15</code> which looks like this:</p>
+<p><img src="images/addtl-04-colttov.PNG" style="display: block; margin: auto;" />  </p>
+<p><strong>Col K</strong> (Year) - <code>= &lt;Start Year&gt; + QUOTIENT(&lt;Qtrs_from_Start&gt;, 4)</code>. As an example, the first formula for <code>K11</code> will be <code>=2011 + QUOTIENT(I11, 4)</code>.</p>
+<p><strong>Col L</strong> (Quarter) - <code>=CONCATENATE(&lt;Qtr_within_Year, &quot; &quot;, &lt;Year&gt;)</code>. As an example, the first formula for <code>L11</code> will be <code>=CONCATENATE(J11, &quot; &quot;, K11)</code>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a lookup table like this:</li>
+</ol>
+<p><img src="images/addat-02-lookup.PNG" style="display: block; margin: auto;" />  </p>
+<ol start="3" style="list-style-type: decimal">
+<li>Compose the formula:
+<ul>
+<li>Initial start of title: “Chart 1 - Hospital Standardised Mortality Ratio: January 2011 -”</li>
+<li>Last month: <code>=VLOOKUP(&lt;remainder_of_quarter_number&gt;,&lt;lookup_table&gt;,&lt;3rd_column&gt;)</code>, e.g. <code>=VLOOKUP(MOD(MAX(Table1!$I:$I),4),Sheet1!$A$4:$C$7,3)</code>. (<em>Since our data is split up by quarter, there are only 4 months that could be the last month of data (March, June, September, or December). Since our first quarter of data is January to March 2011, this corresponds to record 0. We then take our maximum “Qtrs_from_Start”, divide that by 4 (qtrs per year) and then find the remainder. This remainder will tell us the quarter within the year that our last record is in.</em>)</li>
+<li>Last year: <code>=MAX(&lt;Year&gt;)</code> - in this example, <code>=MAX(Table1!$K:$K)</code>.</li>
+<li>Final <code>p</code> character: “p”. This all creates the formula: <code>&quot;Chart 1 - Hospital Standardised Mortality Ratio: January 2011 - &quot; &amp; VLOOKUP(MOD(MAX(TABLE1!$I:$I),4),Sheet1!$A$A:$C$7,3) &amp; MAX(Table1!$K:$K) &amp; &quot;p&quot;</code> into the place where our chart title should go.</li>
+</ul></li>
+</ol>
+<p><img src="images/addat-03-charttitle.PNG" style="display: block; margin: auto;" />  </p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="auto-add-table-line.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
