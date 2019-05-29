@@ -1,0 +1,55 @@
+# Title Auto-Update
+
+Task: to automatically update the chart title based on the time period of the data we're showing.
+
+
+## Steps
+
+1. Find the last time period for which we have records. (In this example records are only added, not removed, so the start date will remain the same, January 2011).
+    * Find the number of records that are in the table.
+    * Use a `VLOOKUP` to find that last month and year for which we have data.
+2. Join the fixed part of our title with the dynamic section using formula. (Add a `p` to the last date for provisional data).
+
+
+## Details
+
+In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.
+
+1. Here we will need to create a four column reference table (for this, we right-clicked on column `I` and clicked insert 4 times). The table we created looks like this with the formulas listed below.
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/addtl-03-colitol.png', dpi = NA)
+```
+&nbsp;
+
+**Col I** (Qtrs_from_Start) - this follows the same format as for Column A, except that we start the count at 0.
+
+**Col J** (Qtr-within_Year) - `=VLOOKUP(MOD(<Qtrs_from_Start>, 4), T$12:V$15, 2)`. This requires its own reference table for `T$12:V$15` which looks like this:
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/addtl-04-colttov.png', dpi = NA)
+```
+&nbsp;
+
+**Col K** (Year) - `= <Start Year> + QUOTIENT(<Qtrs_from_Start>, 4)`. As an example, the first formula for `K11` will be `=2011 + QUOTIENT(I11, 4)`.
+
+**Col L** (Quarter) - `=CONCATENATE(<Qtr_within_Year, " ", <Year>)`. As an example, the first formula for `L11` will be `=CONCATENATE(J11, " ", K11)`.
+
+2. Create a lookup table like this:
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/addat-02-lookup.png', dpi = NA)
+```
+&nbsp;
+
+3. Compose the formula:
+    - Initial start of title: "Chart 1 - Hospital Standardised Mortality Ratio: January 2011 - "
+    - Last month: `=VLOOKUP(<remainder_of_quarter_number>,<lookup_table>,<3rd_column>)`, e.g. `=VLOOKUP(MOD(MAX(Table1!$I:$I),4),Sheet1!$A$4:$C$7,3)`. (*Since our data is split up by quarter, there are only 4 months that could be the last month of data (March, June, September, or December). Since our first quarter of data is January to March 2011, this corresponds to record 0. We then take our maximum "Qtrs_from_Start", divide that by 4 (qtrs per year) and then find the remainder. This remainder will tell us the quarter within the year that our last record is in.*)
+    - Last year: `=MAX(<Year>)` - in this example, `=MAX(Table1!$K:$K)`.
+    - Final `p` character: "p".
+This all creates the formula: `"Chart 1 - Hospital Standardised Mortality Ratio: January 2011 - " & VLOOKUP(MOD(MAX(TABLE1!$I:$I),4),Sheet1!$A$A:$C$7,3) & MAX(Table1!$K:$K) & "p"` into the place where our chart title should go.
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/addat-03-charttitle.png', dpi = NA)
+```
+&nbsp;
