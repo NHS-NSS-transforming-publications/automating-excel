@@ -3,7 +3,7 @@
 Task: to create a new line in an Excel table when new data is added, in this instance quarters.
 
 
-## Steps
+## Steps {-}
 
 1. Reference columns within the table need to be calculated from a formula.
 2. Create a VBA script:
@@ -11,7 +11,7 @@ Task: to create a new line in an Excel table when new data is added, in this ins
     * If yes, insert a new row.
 
 
-## Details
+## Details {-}
 
 In this worked example we are using [TableA1b_Automated], with sheets Table1 and DataNov. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
 

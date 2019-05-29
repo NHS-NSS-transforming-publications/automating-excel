@@ -3,7 +3,7 @@
 Task: to automatically update the chart title based on the time period of the data we're showing.
 
 
-## Steps
+## Steps {-}
 
 1. Find the last time period for which we have records. (In this example records are only added, not removed, so the start date will remain the same, January 2011).
     * Find the number of records that are in the table.
@@ -11,7 +11,7 @@ Task: to automatically update the chart title based on the time period of the da
 2. Join the fixed part of our title with the dynamic section using formula. (Add a `p` to the last date for provisional data).
 
 
-## Details
+## Details {-}
 
 In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.
 

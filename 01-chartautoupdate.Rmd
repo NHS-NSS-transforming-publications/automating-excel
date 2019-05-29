@@ -3,7 +3,7 @@
 Task: to have the Excel charts automatically update with the addition of new rows in a table.
 
 
-## Steps
+## Steps {-}
 
 Replace every formula in the chart with a named formula that includes an offset function.
 
@@ -17,7 +17,7 @@ For every data series that you want to automatically update:
 4. Have the data series you want to change reference this new named formula.
 
 
-## Details
+## Details {-}
 
 In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an `OFFSET` function but need to set this up as a named variable to then include in our Chart Series values.
 

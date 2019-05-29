@@ -3,7 +3,7 @@
 Task: to add a constant baseline area to a chart in Excel.
 
 
-## Steps
+## Steps {-}
 
 1. Insert a new data series in the table.
 2. Set the series values to be a positive value `p` for all quarters whch are in the baseline period and set them to `0` for quarters which aren't in the baseline period.
@@ -15,7 +15,7 @@ Task: to add a constant baseline area to a chart in Excel.
 8. Set the transparency of the columns to 50% (to allow lines to be visible that are behind the columns) and choose an appropriate colour.
 
 
-## Details
+## Details {-}
 
 In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart1. Our data includes a baseline period that we need to show on our chart. We do this by adding another data series within the same chart.
 
