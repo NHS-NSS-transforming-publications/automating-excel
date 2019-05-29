@@ -19,7 +19,7 @@ For every data series that you want to automatically update:
 
 ## Details {-}
 
-In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an `OFFSET` function but need to set this up as a named variable to then include in our Chart Series values.
+In this worked example we are using [TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm), with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an `OFFSET` function but need to set this up as a named variable to then include in our Chart Series values.
 
 1. First, set up a dynamic count for the number of rows in the table. In this example, we've set up a count in cell `H5` with the formula `COUNTA(F11:F1000)` - this will count the number of non-blank cells in this range up to `F1000`. If the data exceeds this, the formula will need to be updated.
 

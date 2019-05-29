@@ -13,7 +13,7 @@ Task: to create a new line in an Excel table when new data is added, in this ins
 
 ## Details {-}
 
-In this worked example we are using [TableA1b_Automated], with sheets Table1 and DataNov. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
+In this worked example we are using [TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm), with sheets Table1 and DataNov. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
 
 1. First, set up a dynamic count for the number of entries (i.e. number of quarters) in the data. In this example, we've set up a count in cell `H4` with the formula `COUNTA(DataNov!D1:IV1)` - this will count the number of non-blank cells in this range across columns within the sheet.
 

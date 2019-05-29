@@ -115,7 +115,7 @@
 </div>
 <div id="details" class="section level2 unnumbered">
 <h2>Details</h2>
-<p>In this worked example we are using [TableA1b_Automated], with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an <code>OFFSET</code> function but need to set this up as a named variable to then include in our Chart Series values.</p>
+<p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm">TableA1b_Automated</a>, with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an <code>OFFSET</code> function but need to set this up as a named variable to then include in our Chart Series values.</p>
 <ol style="list-style-type: decimal">
 <li>First, set up a dynamic count for the number of rows in the table. In this example, we’ve set up a count in cell <code>H5</code> with the formula <code>COUNTA(F11:F1000)</code> - this will count the number of non-blank cells in this range up to <code>F1000</code>. If the data exceeds this, the formula will need to be updated.</li>
 </ol>

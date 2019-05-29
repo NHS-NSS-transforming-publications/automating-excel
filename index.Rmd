@@ -21,3 +21,8 @@ There are four chapters, each for a method of automating the spreadsheet.
 2. Set constant baseline period in chart
 3. Add a record to a table when there is new data in the data sheet
 4. Automatically update the table or chart title when the table has been updated
+
+Example Excel workbooks have also been created and are linked to in the individual chapters when they are used.
+
+1. [TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1a_Automated.xls)
+2. [TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm)
