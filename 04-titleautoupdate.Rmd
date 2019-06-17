@@ -13,7 +13,7 @@ Task: to automatically update the chart title based on the time period of the da
 
 ## Details {-}
 
-In this worked example we are using [TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm), with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.
+In this worked example we are using [HSMR_TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1b_automated.xlsm), with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.
 
 1. Here we will need to create a four column reference table (for this, we right-clicked on column `I` and clicked insert 4 times). The table we created looks like this with the formulas listed below.
 
