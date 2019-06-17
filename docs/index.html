@@ -61,7 +61,9 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i>Tips</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="charts-auto-update.html"><a href="charts-auto-update.html"><i class="fa fa-check"></i><b>1</b> Charts Auto-Update</a><ul>
 <li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#steps"><i class="fa fa-check"></i>Steps</a></li>
 <li class="chapter" data-level="" data-path="charts-auto-update.html"><a href="charts-auto-update.html#details"><i class="fa fa-check"></i>Details</a></li>
@@ -100,8 +102,8 @@
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>This workbook is a general instruction guide for analysts on how to make their Excel worksheets dynamic. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of errors and the time it takes to update data in Excel.</p>
-<p>There are four chapters, each for a method of automating the spreadsheet.</p>
+<p>This workbook is a general instruction guide for analysts on how to make their Excel worksheets update automatically and contain other dynamic elements. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of errors and the time it takes to update data in Excel.</p>
+<p>There are four chapters, each for a method of automating the spreadsheet with specific examples and how-to steps outlined in each:</p>
 <ol style="list-style-type: decimal">
 <li>Chart auto update</li>
 <li>Set constant baseline period in chart</li>
@@ -110,10 +112,20 @@
 </ol>
 <p>Example Excel workbooks have also been created and are linked to in the individual chapters when they are used.</p>
 <ol style="list-style-type: decimal">
-<li><a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1a_Automated.xls">TableA1a_Automated</a></li>
-<li><a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/TableA1b_Automated.xlsm">TableA1b_Automated</a></li>
+<li><a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xls">HSMR_TableA1a_Automated</a></li>
+<li><a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1b_automated.xlsm">HSMR_TableA1b_Automated</a></li>
 </ol>
+<div id="tips" class="section level2 unnumbered">
+<h2>Tips</h2>
+<ul>
+<li>If R is used in the data wrangling/analysis process then the <code>openxlsx</code> package can be used to automitcally populate the data tab, again decreasing manual steps in the workflow.</li>
+<li>Before starting to design/re-design an Excel table, consider all the data requirements to populate the content. This will include not just standard data items such as figures and labels, but also items required for titles and footnotes. This many require additions to, or re-structuring of, the underlying data.</li>
+<li>The ‘dynamic ranges’ formula in Excel will be key when creating charts which update automatically, so it will be useful to be familiar with this.</li>
+<li><code>VLOOKUP</code> will be used to search data and create cell content.</li>
+<li>In order to create drop-down selection, we recommend using an alternative method to macros by clicking: Developer &gt; Insert &gt; Form Controls &gt; Combo Box (see <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xls">‘HSMR_TableA1a_automated.xls’</a> for examples.)</li>
+</ul>
 
+</div>
 </div>
             </section>
 
