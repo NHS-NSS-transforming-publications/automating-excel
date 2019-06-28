@@ -102,7 +102,7 @@
 <p>Task: to have the Excel charts automatically update with the addition of new rows in a table.</p>
 <div id="steps" class="section level2 unnumbered">
 <h2>Steps</h2>
-<p>Replace every formula in the chart with a named formula that includes an offset function.</p>
+<p>Replace every formula in the chart with a named formula that includes an offset function to auto-detect the data range dynamically.</p>
 <p>For every data series that you want to automatically update:</p>
 <ol style="list-style-type: decimal">
 <li>Start by creating a named formula.</li>
@@ -111,15 +111,15 @@
 <li>Reference the column of the data series that you wish to update.</li>
 <li>Reference the number of rows of the table which is being updated.</li>
 </ul></li>
-<li>Save the named variable.</li>
+<li>Save the named formula.</li>
 <li>Have the data series you want to change reference this new named formula.</li>
 </ol>
 </div>
 <div id="details" class="section level2 unnumbered">
 <h2>Details</h2>
-<p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm">HSMR_TableA1a_Automated</a>, with sheet “Chart2”. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an <code>OFFSET</code> function but need to set this up as a named variable to then include in our Chart Series values.</p>
+<p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm">HSMR_TableA1a_Automated</a>, with sheet “Chart2”. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an <code>OFFSET</code> function but need to set this up as a named function to then include in our Chart Series values.</p>
 <ol style="list-style-type: decimal">
-<li>First, set up a dynamic count for the number of rows in the table. In this example, we’ve set up a count in cell <code>H5</code> with the formula <code>COUNTA(F11:F1000)</code> - this will count the number of non-blank cells in this range up to <code>F1000</code>. If the data exceeds this, the formula will need to be updated.</li>
+<li>First, set up a dynamic count for the number of rows in the table. In this example, we’ve set up a sheet for calculations, <code>Sheet 1</code> and entered the formula <code>COUNTA(Table1!C:C)-1</code> in one of the cells - this will count the number of non-blank cells in this range.</li>
 </ol>
 <p><img src="images/chartau-01-countrows.PNG" style="display: block; margin: auto;" />  </p>
 <ol start="2" style="list-style-type: decimal">
@@ -135,7 +135,7 @@
 </ol>
 <p><img src="images/chartau-04-createname.PNG" style="display: block; margin: auto;" />  </p>
 <ol start="5" style="list-style-type: decimal">
-<li>Finally, select the chart and right-click, click on “Select Data…”, and then click on “Edit” for the series values. Add the named variable as the series value.</li>
+<li>Finally, select the chart and right-click, click on “Select Data…”, and then click on “Edit” for the series values. Add the named function as the series value.</li>
 </ol>
 <p><img src="images/chartau-05-editseries.PNG" style="display: block; margin: auto;" />  </p>
 <p>These steps should then be repeated for the X-Axis values, and once for each line within your chart. After completing this, the charts should be automically updated with each new quarter’s data that is added.</p>
