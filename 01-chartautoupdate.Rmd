@@ -21,7 +21,7 @@ For every data series that you want to automatically update:
 
 In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheet "Chart2". Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an `OFFSET` function but need to set this up as a named function to then include in our Chart Series values.
 
-1. First, set up a dynamic count for the number of rows in the table. In this example, we've set up a sheet for calculations, `Sheet 1` and entered the formula `=COUNTA(Table1!C:C)-1` in one of the cells - this will count the number of non-blank cells in this range.
+1. First, set up a dynamic count for the number of rows in the table. In this example, we've set up a sheet for calculations, "Sheet 1"" and entered the formula `=COUNTA(Table1!C:C)-1` in one of the cells - this will count the number of non-blank cells in this range.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/chartau-01-countrows.png', dpi = NA)
