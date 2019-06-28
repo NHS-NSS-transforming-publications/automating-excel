@@ -15,16 +15,16 @@ Task: to create a new row in an Excel table when new data is added, in this inst
 
 In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheet Table1. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
 
-1. First, set up a dynamic count for the number of entries (i.e. number of quarters) in the data. In this example, we've set up a count in cell `H4` with the formula `COUNTA(DataNov!D1:IV1)` - this will count the number of non-blank cells in this range across columns within the sheet.
+1. First, set up a dynamic count for the number of entries (i.e. number of quarters) in the data. In this example, we've set up a sheet for calculations, "Sheet 1" and entered the formula `=MAX(smr_data!B:B)` - this will count the number of non-blank cells in this range across columns within the sheet.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/addtl-01-datacount.png', dpi = NA)
 ```
 &nbsp;
 
-2. We then have to set two columns in our table to be formulas. 
+2. We then have to set 2 columns in our table to be formulas in the sheet we have called "Table1". 
 
-- Column A - this is simple, we just have to increase the number by 1 for each new row.
+- Column A - this is simple, we just have to increase the number by 1 for each new row. So each cell equals the cell above plus 1, except the cell against the first quarter which should have a value of `1`. 
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/addtl-02-cola.png', dpi = NA)
@@ -39,7 +39,7 @@ knitr::include_graphics('images/addtl-03-colitol.png', dpi = NA)
 
 **Col I** (Qtrs_from_Start) - this follows the same format as for Column A, except that we start the count at 0.
 
-**Col J** (Qtr-within_Year) - `=VLOOKUP(MOD(<Qtrs_from_Start>, 4), T$12:V$15, 2)`. This requires its own reference table for `T$12:V$15` which looks like this:
+**Col J** (Qtr-within_Year) - This requires its own reference table which we have created in "Sheet 1" for `Sheet1!$A$4:$C$7` in the formula. That table should look like the screenshot below. The full formula to use in column J is: `=VLOOKUP(MOD(<Qtrs_from_Start>, 4), T$12:V$15, 2)`. 
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/addtl-04-colttov.png', dpi = NA)
@@ -56,7 +56,7 @@ knitr::include_graphics('images/addtl-05-colb.png', dpi = NA)
 ```
 &nbsp;
 
-3. The next step is to make quite a simple VBA script that checks if there are more quarters in our data tab that are in the table. If this is true then it copies the new data and inserts as the last row in our table. First, ensure Macros are enabled on your workbook (you may need to close and re-open the document), then click on the View tab and then select Macros. On the page that appears, enter the name of the Macro and click "Create". Then, copy the code below. Once the Macro is set up, you can set up options to create a shortcut key to run the code without having to find it in the Macro menus.
+3. The next step is to make quite a simple VBA script that checks if there are more quarters added to our data tab that are not included in the table. If this is true then it copies the new data and inserts as the last row in our table. First, ensure Macros are enabled on your workbook (you may need to close and re-open the document), then click on the View tab and then select Macros. On the page that appears, enter the name of the Macro and click "Create". Then, copy the code below into the VBA editor and save it. Once the Macro is set up, you can set up options (click "Options" in the Macro dialogue box) to create a shortcut key to run the code without having to find it in the Macro menus.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/addtl-06-viewmacro.png', dpi = NA)
@@ -67,21 +67,21 @@ knitr::include_graphics('images/addtl-07-newmacro.png', dpi = NA)
 ```
 &nbsp;
 ```
-Sub CopyDataInsertLastLineOfTable()
+Sub CopyAndInsertLastLineOfTable()
 '
-' CopyDataInsertLastLineOfTable Macro
+' CopyAndInsertLastLineOfTable Macro
 '
 ' Keyboard Shortcut: Ctrl+u
 '
 
 ' If the number of quarters of data in the data tab is greater than the number of rows in the table,
 ' then run the following code.
-If Worksheets("Table1").Range("H4").Value > Worksheets("Table1").Range("H5").Value Then 
+If Worksheets("Table1").Range("B2").Value > Worksheets("Sheet1").Range("B1").Value Then 
 
         ' Find the last row in the table.
-        ' The cell "H5" counts the current number of rows in the table while the +10 adjusts for
+        ' The cell "B1" counts the current number of rows in the table while the +10 adjusts for
         ' the position of the first row.
-        last_row_in_table = Worksheets("Table1").Range("H5").Value + 10
+        last_row_in_table = Worksheets("Sheet1").Range("B1").Value + 10
         
         ' Copy the last row in the table.
         Worksheets("Table1").Rows(last_row_in_table).Copy

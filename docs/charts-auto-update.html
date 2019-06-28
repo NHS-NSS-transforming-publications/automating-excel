@@ -119,7 +119,7 @@
 <h2>Details</h2>
 <p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm">HSMR_TableA1a_Automated</a>, with sheet “Chart2”. Each quarter a new row will be added, we need to make our chart automically update to include this new data. We can do this with an <code>OFFSET</code> function but need to set this up as a named function to then include in our Chart Series values.</p>
 <ol style="list-style-type: decimal">
-<li>First, set up a dynamic count for the number of rows in the table. In this example, we’ve set up a sheet for calculations, <code>Sheet 1</code> and entered the formula <code>COUNTA(Table1!C:C)-1</code> in one of the cells - this will count the number of non-blank cells in this range.</li>
+<li>First, set up a dynamic count for the number of rows in the table. In this example, we’ve set up a sheet for calculations, “Sheet 1”&quot; and entered the formula <code>=COUNTA(Table1!C:C)-1</code> in one of the cells - this will count the number of non-blank cells in this range.</li>
 </ol>
 <p><img src="images/chartau-01-countrows.PNG" style="display: block; margin: auto;" />  </p>
 <ol start="2" style="list-style-type: decimal">
