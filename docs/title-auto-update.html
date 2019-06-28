@@ -115,11 +115,11 @@
 <h2>Details</h2>
 <p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1b_automated.xlsm">HSMR_TableA1b_Automated</a>, with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.</p>
 <ol style="list-style-type: decimal">
-<li>Here we will need to create a four column reference table (for this, we right-clicked on column <code>I</code> and clicked insert 4 times). The table we created looks like this with the formulas listed below.</li>
+<li>Here we will need to create a four column reference table (for this, we right-clicked on column <code>I</code> and clicked insert 4 times). *This step was completed in for the previous chapter, “Auto-Add Table Row.* The table we created looks like this with the formulas listed below.</li>
 </ol>
 <p><img src="images/addtl-03-colitol.PNG" style="display: block; margin: auto;" />  </p>
 <p><strong>Col I</strong> (Qtrs_from_Start) - this follows the same format as for Column A, except that we start the count at 0.</p>
-<p><strong>Col J</strong> (Qtr-within_Year) - <code>=VLOOKUP(MOD(&lt;Qtrs_from_Start&gt;, 4), T$12:V$15, 2)</code>. This requires its own reference table for <code>T$12:V$15</code> which looks like this:</p>
+<p><strong>Col J</strong> (Qtr-within_Year) - This requires its own reference table which we have created in “Sheet 1” for <code>Sheet1!$A$4:$C$7</code> in the formula. That table should look like the screenshot below. The full formula to use in column J is: <code>=VLOOKUP(MOD(&lt;Qtrs_from_Start&gt;, 4), T$12:V$15, 2)</code>.</p>
 <p><img src="images/addtl-04-colttov.PNG" style="display: block; margin: auto;" />  </p>
 <p><strong>Col K</strong> (Year) - <code>= &lt;Start Year&gt; + QUOTIENT(&lt;Qtrs_from_Start&gt;, 4)</code>. As an example, the first formula for <code>K11</code> will be <code>=2011 + QUOTIENT(I11, 4)</code>.</p>
 <p><strong>Col L</strong> (Quarter) - <code>=CONCATENATE(&lt;Qtr_within_Year, &quot; &quot;, &lt;Year&gt;)</code>. As an example, the first formula for <code>L11</code> will be <code>=CONCATENATE(J11, &quot; &quot;, K11)</code>.</p>
@@ -131,7 +131,7 @@
 <li>Compose the formula:
 <ul>
 <li>Initial start of title: “Chart 1 - Hospital Standardised Mortality Ratio: January 2011 -”</li>
-<li>Last month: <code>=VLOOKUP(&lt;remainder_of_quarter_number&gt;,&lt;lookup_table&gt;,&lt;3rd_column&gt;)</code>, e.g. <code>=VLOOKUP(MOD(MAX(Table1!$I:$I),4),Sheet1!$A$4:$C$7,3)</code>. (<em>Since our data is split up by quarter, there are only 4 months that could be the last month of data (March, June, September, or December). Since our first quarter of data is January to March 2011, this corresponds to record 0. We then take our maximum “Qtrs_from_Start”, divide that by 4 (qtrs per year) and then find the remainder. This remainder will tell us the quarter within the year that our last record is in.</em>)</li>
+<li>Last month: <code>=VLOOKUP(&lt;remainder_of_quarter_number&gt;,&lt;lookup_table&gt;,&lt;3rd_column&gt;)</code>, e.g. <code>=VLOOKUP(MOD(MAX(Table1!$I:$I),4),Sheet1!$A$4:$C$7,3)</code>. (<em>Since our data is split up by quarter, there are only 4 months that could be the last month of each quarter (March, June, September, or December). We then take our maximum “Qtrs_from_Start”, divide that by 4 (qtrs per year) and then find the remainder. This remainder will tell us the last month of the last quarter within the year that our last record is in, which is what we’re looking for.</em>)</li>
 <li>Last year: <code>=MAX(&lt;Year&gt;)</code> - in this example, <code>=MAX(Table1!$K:$K)</code>.</li>
 <li>Final <code>p</code> character: “p”. This all creates the formula: <code>&quot;Chart 1 - Hospital Standardised Mortality Ratio: January 2011 - &quot; &amp; VLOOKUP(MOD(MAX(TABLE1!$I:$I),4),Sheet1!$A$A:$C$7,3) &amp; MAX(Table1!$K:$K) &amp; &quot;p&quot;</code> into the place where our chart title should go.</li>
 </ul></li>
