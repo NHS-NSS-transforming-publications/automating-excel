@@ -1,6 +1,6 @@
-# Auto-Add Table Line
+# Auto-Add Table Row
 
-Task: to create a new line in an Excel table when new data is added, in this instance quarters.
+Task: to create a new row in an Excel table when new data is added, in this instance quarters.
 
 
 ## Steps {-}

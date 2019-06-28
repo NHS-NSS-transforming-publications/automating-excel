@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>4 Title Auto-Update | Automating Excel</title>
+  <title>3 Auto-Add Table Row | Automating Excel</title>
   <meta name="description" content="A guide on how to create automated Excel worksheets and tables">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="4 Title Auto-Update | Automating Excel" />
+  <meta property="og:title" content="3 Auto-Add Table Row | Automating Excel" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="NHS-NSS-transforming-publications/automating-excel" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Title Auto-Update | Automating Excel" />
+  <meta name="twitter:title" content="3 Auto-Add Table Row | Automating Excel" />
   
   <meta name="twitter:description" content="A guide on how to create automated Excel worksheets and tables" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="auto-add-table-row.html">
-
+<link rel="prev" href="chart-baseline.html">
+<link rel="next" href="title-auto-update.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -97,46 +97,77 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="title-auto-update" class="section level1">
-<h1><span class="header-section-number">4</span> Title Auto-Update</h1>
-<p>Task: to automatically update the chart title based on the time period of the data we’re showing.</p>
-<div id="steps-3" class="section level2 unnumbered">
+<div id="auto-add-table-row" class="section level1">
+<h1><span class="header-section-number">3</span> Auto-Add Table Row</h1>
+<p>Task: to create a new row in an Excel table when new data is added, in this instance quarters.</p>
+<div id="steps-2" class="section level2 unnumbered">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Find the last time period for which we have records. (In this example records are only added, not removed, so the start date will remain the same, January 2011).
+<li>Reference columns within the table need to be calculated from a formula.</li>
+<li>Create a VBA script:
 <ul>
-<li>Find the number of records that are in the table.</li>
-<li>Use a <code>VLOOKUP</code> to find that last month and year for which we have data.</li>
+<li>Check if there are more quarters of data in the data tab</li>
+<li>If yes, insert a new row.</li>
 </ul></li>
-<li>Join the fixed part of our title with the dynamic section using formula. (Add a <code>p</code> to the last date for provisional data).</li>
 </ol>
 </div>
-<div id="details-3" class="section level2 unnumbered">
+<div id="details-2" class="section level2 unnumbered">
 <h2>Details</h2>
-<p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1b_automated.xlsm">HSMR_TableA1b_Automated</a>, with sheets Table1 and Chart2. Each quarter a new row will be added, we need to make our title automically update to include this information.</p>
+<p>In this worked example we are using <a href="https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm">HSMR_TableA1a_Automated</a>, with sheet Table1. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.</p>
 <ol style="list-style-type: decimal">
-<li>Here we will need to create a four column reference table (for this, we right-clicked on column <code>I</code> and clicked insert 4 times). The table we created looks like this with the formulas listed below.</li>
+<li>First, set up a dynamic count for the number of entries (i.e. number of quarters) in the data. In this example, we’ve set up a count in cell <code>H4</code> with the formula <code>COUNTA(DataNov!D1:IV1)</code> - this will count the number of non-blank cells in this range across columns within the sheet.</li>
 </ol>
-<p><img src="images/addtl-03-colitol.PNG" style="display: block; margin: auto;" />  </p>
+<p><img src="images/addtl-01-datacount.PNG" style="display: block; margin: auto;" />  </p>
+<ol start="2" style="list-style-type: decimal">
+<li>We then have to set two columns in our table to be formulas.</li>
+</ol>
+<ul>
+<li>Column A - this is simple, we just have to increase the number by 1 for each new row.</li>
+</ul>
+<p><img src="images/addtl-02-cola.PNG" style="display: block; margin: auto;" />  </p>
+<ul>
+<li>Column B - in this column, the quater and year are named. So for this we will need to create a four column reference table (here, we right-clicked on <code>I</code> and clicked insert 4 times). The table we created looks like this with the formulas listed below.</li>
+</ul>
+<p><img src="images/addtl-03-colitol.PNG" style="display: block; margin: auto;" /></p>
 <p><strong>Col I</strong> (Qtrs_from_Start) - this follows the same format as for Column A, except that we start the count at 0.</p>
 <p><strong>Col J</strong> (Qtr-within_Year) - <code>=VLOOKUP(MOD(&lt;Qtrs_from_Start&gt;, 4), T$12:V$15, 2)</code>. This requires its own reference table for <code>T$12:V$15</code> which looks like this:</p>
-<p><img src="images/addtl-04-colttov.PNG" style="display: block; margin: auto;" />  </p>
+<p><img src="images/addtl-04-colttov.PNG" style="display: block; margin: auto;" /></p>
 <p><strong>Col K</strong> (Year) - <code>= &lt;Start Year&gt; + QUOTIENT(&lt;Qtrs_from_Start&gt;, 4)</code>. As an example, the first formula for <code>K11</code> will be <code>=2011 + QUOTIENT(I11, 4)</code>.</p>
 <p><strong>Col L</strong> (Quarter) - <code>=CONCATENATE(&lt;Qtr_within_Year, &quot; &quot;, &lt;Year&gt;)</code>. As an example, the first formula for <code>L11</code> will be <code>=CONCATENATE(J11, &quot; &quot;, K11)</code>.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Create a lookup table like this:</li>
-</ol>
-<p><img src="images/addat-02-lookup.PNG" style="display: block; margin: auto;" />  </p>
+<p>Finally, we can change our column B to be a formula. For this, we need to include a <code>p</code> (provisional) at the end of the final row in the table. The formula will look like this: <code>=&lt;Year&gt; &amp; IF(&lt;Quarters_of_Data+1), &quot;p&quot;, &quot;&quot;)</code>. The worked example is shown below:</p>
+<p><img src="images/addtl-05-colb.PNG" style="display: block; margin: auto;" />  </p>
 <ol start="3" style="list-style-type: decimal">
-<li>Compose the formula:
-<ul>
-<li>Initial start of title: “Chart 1 - Hospital Standardised Mortality Ratio: January 2011 -”</li>
-<li>Last month: <code>=VLOOKUP(&lt;remainder_of_quarter_number&gt;,&lt;lookup_table&gt;,&lt;3rd_column&gt;)</code>, e.g. <code>=VLOOKUP(MOD(MAX(Table1!$I:$I),4),Sheet1!$A$4:$C$7,3)</code>. (<em>Since our data is split up by quarter, there are only 4 months that could be the last month of data (March, June, September, or December). Since our first quarter of data is January to March 2011, this corresponds to record 0. We then take our maximum “Qtrs_from_Start”, divide that by 4 (qtrs per year) and then find the remainder. This remainder will tell us the quarter within the year that our last record is in.</em>)</li>
-<li>Last year: <code>=MAX(&lt;Year&gt;)</code> - in this example, <code>=MAX(Table1!$K:$K)</code>.</li>
-<li>Final <code>p</code> character: “p”. This all creates the formula: <code>&quot;Chart 1 - Hospital Standardised Mortality Ratio: January 2011 - &quot; &amp; VLOOKUP(MOD(MAX(TABLE1!$I:$I),4),Sheet1!$A$A:$C$7,3) &amp; MAX(Table1!$K:$K) &amp; &quot;p&quot;</code> into the place where our chart title should go.</li>
-</ul></li>
+<li>The next step is to make quite a simple VBA script that checks if there are more quarters in our data tab that are in the table. If this is true then it copies the new data and inserts as the last row in our table. First, ensure Macros are enabled on your workbook (you may need to close and re-open the document), then click on the View tab and then select Macros. On the page that appears, enter the name of the Macro and click “Create”. Then, copy the code below. Once the Macro is set up, you can set up options to create a shortcut key to run the code without having to find it in the Macro menus.</li>
 </ol>
-<p><img src="images/addat-03-charttitle.PNG" style="display: block; margin: auto;" />  </p>
+<p><img src="images/addtl-06-viewmacro.PNG" style="display: block; margin: auto;" />   <img src="images/addtl-07-newmacro.PNG" style="display: block; margin: auto;" />  </p>
+<pre><code>Sub CopyDataInsertLastLineOfTable()
+&#39;
+&#39; CopyDataInsertLastLineOfTable Macro
+&#39;
+&#39; Keyboard Shortcut: Ctrl+u
+&#39;
+
+&#39; If the number of quarters of data in the data tab is greater than the number of rows in the table,
+&#39; then run the following code.
+If Worksheets(&quot;Table1&quot;).Range(&quot;H4&quot;).Value &gt; Worksheets(&quot;Table1&quot;).Range(&quot;H5&quot;).Value Then 
+
+        &#39; Find the last row in the table.
+        &#39; The cell &quot;H5&quot; counts the current number of rows in the table while the +10 adjusts for
+        &#39; the position of the first row.
+        last_row_in_table = Worksheets(&quot;Table1&quot;).Range(&quot;H5&quot;).Value + 10
+        
+        &#39; Copy the last row in the table.
+        Worksheets(&quot;Table1&quot;).Rows(last_row_in_table).Copy
+        
+        &#39; Select the row after the last row in the table.
+        Rows((last_row_in_table + 1)).Select
+        
+        &#39; Insert the copied row right after the last row in the table.
+        Select.Insert Shift:=x1Down, CopyOrigin:=xlFormatFromLeftOrAbove
+        
+End If
+
+End Sub</code></pre>
 
 </div>
 </div>
@@ -145,8 +176,8 @@
           </div>
         </div>
       </div>
-<a href="auto-add-table-row.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="chart-baseline.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="title-auto-update.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
