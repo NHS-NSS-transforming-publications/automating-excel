@@ -8,10 +8,17 @@ output:
         collapse: section
 description: "A guide on how to create automated Excel worksheets and tables"
 github-repo: NHS-NSS-transforming-publications/automating-excel
+cover-image: images/coversmall.png
 output_dir: "docs"
 ---
 
+
 # Preface {-}
+
+```{r fig.align='center', echo=FALSE, out.height = "150px", include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/coversmall.png', dpi = NA)
+```
+&nbsp;
 
 This workbook is a general instruction guide for analysts on how to make their Excel worksheets update automatically and contain other dynamic elements. This will prevent you from having to copy and paste data, formulas, and update charts. It will also reduce the number of errors and the time it takes to update data in Excel.
 
