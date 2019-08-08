@@ -31,7 +31,7 @@ There are four chapters, each for a method of automating the spreadsheet with sp
 
 Example Excel workbooks have also been created and are linked to in the individual chapters when they are used.
 
-1. [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xls)
+1. [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm)
 2. [HSMR_TableA1b_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1b_automated.xlsm)
 
 
@@ -41,5 +41,5 @@ Example Excel workbooks have also been created and are linked to in the individu
 * Before starting to design/re-design an Excel table, consider all the data requirements to populate the content. This will include not just standard data items such as figures and labels, but also items required for titles and footnotes. This many require additions to, or re-structuring of, the underlying data. 
 * The 'dynamic ranges' formula, `offset()`, in Excel will be key when creating charts which update automatically, so it will be useful to be familiar with this.
 * `VLOOKUP` will be used to search data and create cell content.
-* In order to create drop-down selection, we recommend using an alternative method to macros by clicking: Developer > Insert > Form Controls > Combo Box (see ['HSMR_TableA1a_automated.xls'](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xls) for examples.)
+* In order to create drop-down selection, we recommend using an alternative method to macros by clicking: Developer > Insert > Form Controls > Combo Box (see ['HSMR_TableA1a_automated.xlsm'](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm) for examples.)
 
