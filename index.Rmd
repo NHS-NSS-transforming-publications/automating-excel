@@ -37,7 +37,7 @@ Example Excel workbooks have also been created and are linked to in the individu
 
 ## Tips {-}
 
-* If R is used in the data wrangling/analysis process then the `openxlsx` package can be used to automitcally populate the data tab, again decreasing manual steps in the workflow.
+* If R is used in the data wrangling/analysis process then the `openxlsx` package can be used to automatically populate the data tab, again decreasing manual steps in the workflow.
 * Before starting to design/re-design an Excel table, consider all the data requirements to populate the content. This will include not just standard data items such as figures and labels, but also items required for titles and footnotes. This many require additions to, or re-structuring of, the underlying data. 
 * The 'dynamic ranges' formula, `offset()`, in Excel will be key when creating charts which update automatically, so it will be useful to be familiar with this.
 * `VLOOKUP` will be used to search data and create cell content.

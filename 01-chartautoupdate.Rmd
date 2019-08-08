@@ -56,4 +56,4 @@ knitr::include_graphics('images/chartau-05-editseries.png', dpi = NA)
 ```
 &nbsp;
 
-These steps should then be repeated for the X-Axis values, and once for each line within your chart. After completing this, the charts should be automically updated with each new quarter's data that is added.
+These steps should then be repeated for the X-Axis values, and once for each line within your chart. After completing this, the charts should be automatically updated with each new quarter's data that is added.
