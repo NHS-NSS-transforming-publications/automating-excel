@@ -131,11 +131,11 @@
 </ol>
 <p><img src="images/chartau-03-newname.png" style="display: block; margin: auto;" />  </p>
 <ol start="4" style="list-style-type: decimal">
-<li>Name and add reference forumla. In this example, we’ve named it “ChartData” and the formula is <code>=OFFSET(Table1!$E$11, 0, 0, H5, 1)</code>.</li>
+<li>Name and add reference forumla. In this example, we’ve named it “table1_SMR” and the formula is <code>=OFFSET(Table1!$E$11, 0, 0, Sheet1!$B$1, 1)</code>.</li>
 </ol>
 <p><img src="images/chartau-04-createname.PNG" style="display: block; margin: auto;" />  </p>
 <ol start="5" style="list-style-type: decimal">
-<li>Finally, select the chart and right-click, click on “Select Data…”, and then click on “Edit” for the series values. Add the named function as the series value.</li>
+<li>Finally, select the chart and right-click, click on “Select Data…”, and then click on “Edit” for the series values. Add the named function as the series value, <code>=HSMR_TableA1a_automated.xlsm!table1_SMR</code>.</li>
 </ol>
 <p><img src="images/chartau-05-editseries.PNG" style="display: block; margin: auto;" />  </p>
 <p>These steps should then be repeated for the X-Axis values, and once for each line within your chart. After completing this, the charts should be automatically updated with each new quarter’s data that is added.</p>

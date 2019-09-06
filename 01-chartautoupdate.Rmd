@@ -42,14 +42,14 @@ knitr::include_graphics('images/chartau-03-newname.png', dpi = NA)
 ```
 &nbsp;
 
-4. Name and add reference forumla. In this example, we've named it "ChartData" and the formula is `=OFFSET(Table1!$E$11, 0, 0, H5, 1)`.
+4. Name and add reference forumla. In this example, we've named it "table1_SMR" and the formula is `=OFFSET(Table1!$E$11, 0, 0, Sheet1!$B$1, 1)`.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/chartau-04-createname.png', dpi = NA)
 ```
 &nbsp;
 
-5. Finally, select the chart and right-click, click on "Select Data...", and then click on "Edit" for the series values. Add the named function as the series value.
+5. Finally, select the chart and right-click, click on "Select Data...", and then click on "Edit" for the series values. Add the named function as the series value, `=HSMR_TableA1a_automated.xlsm!table1_SMR`.
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
 knitr::include_graphics('images/chartau-05-editseries.png', dpi = NA)
