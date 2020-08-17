@@ -13,7 +13,7 @@ Task: to create a new row in an Excel table when new data is added, in this inst
 
 ## Details {-}
 
-In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheet Table1. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
+In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/public-health-scotland/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheet Table1. Each quarter new data is added to the data tab and a new row will need to be added to the table to represent this.
 
 1. First, set up a dynamic count for the number of entries (i.e. number of quarters) in the data. In this example, we've set up a sheet for calculations, "Sheet 1" and entered the formula `=MAX(smr_data!B:B)` - this will count the number of non-blank cells in this range across columns within the sheet.
 

@@ -17,7 +17,7 @@ Task: to add a constant baseline area to a chart in Excel.
 
 ## Details {-}
 
-In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/NHS-NSS-transforming-publications/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheets Table1 and Chart1. Our data includes a baseline period that we need to show on our chart. We do this by adding another data series within the same chart.
+In this worked example we are using [HSMR_TableA1a_Automated](https://github.com/public-health-scotland/automating-excel/raw/master/HSMR_TableA1a_automated.xlsm), with sheets Table1 and Chart1. Our data includes a baseline period that we need to show on our chart. We do this by adding another data series within the same chart.
 
 1. First, right-click on the chart and click "Select Data...", on the screen that appears click "Add" for a new series.
 
