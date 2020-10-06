@@ -11,4 +11,4 @@ There are currently four sections:
 3. Adding a record to a table where there is new data in a data sheet
 4. Automically updating the table or chart title when the table has been update.
 
-This is part of the Transforming Publishing team's [toolkit](https://github.com/public-health-scotland/Toolkit) of templates, guides, and resources. If you have any questions (or suggestions) about the toolkit or this guidance then please contact our team at [phs.transformingpublishing@nhs.net](mailto:phs.transformingpublishing@nhs.net) and we'd be more than happy to help.
+This is part of the Transforming Publishing team's [toolkit](https://github.com/public-health-scotland/Toolkit) of templates, guides, and resources. If you have any questions (or suggestions) about the toolkit or this guidance then please contact our team at [phs.transformingpublishing@phs.scot](mailto:phs.transformingpublishing@phs.scot) and we'd be more than happy to help.
